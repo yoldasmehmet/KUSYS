@@ -10,7 +10,11 @@
 
 - [Hakkında](#about)
 - [Gerekli kurulumlar](#getting_started)
-
+- [Veritabanı kurulumları](#database)
+- [Tasarım](#usage)
+- [Yüklenmesi](#deployment)
+- [Nuget'te yayılanmış olan kütüphaneler ile etkin kullanılabilecek uygulamalar](#built_using)
+- [Teknolojiler](#acknowledgement)
 ## 🧐 Hakkında <a name = "about"></a>
 
 Bu demo projesi üniversitelerin gereksinim çerçevesinde hazırlanmıştır. Bu demo projesine
@@ -26,7 +30,7 @@ Bu projede kullanılan yetkilendirme sistemi SSO yapısındadır. Yetkilendirmel
 
 Proje de kullanılan veritabanı postgresqldir. Docker engine'e kurulumu için aşağıdaki adımlar izlemelidir.
 
-#### Veritabanı kurulumları
+#### Veritabanı kurulumları  <a name = "database"></a>
 - Docker desctop kurulumu yapılır. İnternetten indirilip kurulur. Kurulumunda sıkıntı yaşanırsa benimle irtibata geçebilirsiniz. (Tel: 05079404960)
 - KUSYS projesinde bulunan Reinstall-KUSYSDB.bat dosyası dosya konumundan çift tıklanarak çalıştırılabilir. 
 Docker desctop aktif çalışır durumda değilse "Reinstall-KUSYSDB.bat" dosyası çalışırken hata verecektir.
@@ -36,7 +40,7 @@ Docker desctop aktif çalışır durumda değilse "Reinstall-KUSYSDB.bat" dosyas
 - Proje çalıştırılınca KUSYS projesi için açılan swagger sekmesinde 
 login yapılır ve crud işlemleri login yapılan user'in yetkilerine göre çalışır. Login bilgileri çalıştırma ve 
 test sekmesinde([burdan erişebilirsiniz](#tests)) bulunmaktadır.
-#### Graylog Kurulumu
+#### Graylog Kurulumu <a name = "graylog"></a>
 - Graylog kurulumu için Library.Logging projesinde bulunan Reinstal-Graylog.bat dosyası çalıştırılır.
 - Graylog'un web arayüzüne http://localhost:3000/ adresinden ulaşılabilir. Kullanıcı Adı:admin, Şifre:library yazılır.
 - System/Inputs sekmesinde inputs'a tıklanıp. 
