@@ -81,7 +81,7 @@ Bu şekilde şema değişimlerindeki yaşanabilecek sıkıntılar minimize edili
  Yapılan testlerde envirement değişimlerinde tablo yapılarının değişmesi başarılıdır ve sorun çıkarmıyor. Bir envirement'ta çalışan bir migration diğerinde de çalışmaktadır. Veri tabanına elle mudahale edilmediği sürece problem yaşanmamaktadır.
  Proje çalıştırılınca ilk yapılan iş migration olduğu için gerekli şema değişikliği veri tabanına yansıtılır ve kodlar ona göre çalışır. 
  Migratiion yapıldıktan sonra bunun için harcanan zamanı da konsoldan izlemek ve ne yapıldığına dair bilgileri de görmek mümkündür.
- - Yapılacak olan migratonun kim tarafından ne zaman yapıldığı VersionInfo tablosunda kayıt altında tutulmaktadır. 
+ - Yapılacak olan migrationun kim tarafından ne zaman yapıldığı VersionInfo tablosunda kayıt altında tutulmaktadır. 
  Şema ile ilgili herhangi bir sorun yaşandığında bu tablodan faydalanılabilir.
  - Bu yöntemle development ortamındaki bir sorundan diğer ortamlar etkilenmemiş olur. 
  Envirementlerın bir birinden tam olarak yalıtılması geliştirme sürecindeki hatalardan etkilenen kullanıcı sayısını minimize etmektedir."
