@@ -18,7 +18,7 @@ nuget.org'ta yayımlanmladığım binlerce indirmesi olan kod kütüphanesinin b
 Kütüphanenin geri kalanında loglama(graylog ile entegre), cacheleme (redis ile entegre),
 dosya sunucusu yardımcı methodları (Min.io amazon s3 protokolü ile çalışan hızlı ve stabil dosya sunucusu),
 mongodb ve elastic search ile ilgili yardımcı sınıfları içermektedir. 
-Bu projede kullanılan yetkilendirme sistemi SSO yapısındadır. Yetkilendirmeler bir servis sağlayıcısınun ürettiği jwt tokenlar sayesinde gerçekleşir. 
+Bu projede kullanılan yetkilendirme sistemi SSO yapısındadır. Yetkilendirmeler bir servis sağlayıcısının ürettiği jwt tokenlar sayesinde gerçekleşir. 
  Tüm uygulamalar jwt token üreten bir servis ile yetkilendirilebilmektedir. 
  Bu üniversite içinde çok gereksinim duyulan bir yapıdır. 
  Uygulama testleri swagger üzerinden yapılması gerekmektedir. 
@@ -98,7 +98,7 @@ Bu şekilde gerekli tablolar, tablolar arası ilişkiler, ön tanımlı kayıtla
 
 ## ⛏️ Nuget'te yayılanmış olan kütüphaneler ile etkin kullanılabilecek uygulamalar <a name = "built_using"></a>
 
-- [MongoDB](https://www.mongodb.com/) - Nosql veri tabanı (Chd.Library.NoSQL
+- [MongoDB](https://www.mongodb.com/) - Nosql veri tabanı
 - [Min.IO](https://expressjs.com/) - Amazon S3 protokolü destekli açık kaynaklı dosya sunucusu.
 - [Redis]() - Veritabanının yükünü hafifleten bir mekanizmadır. (Compile time AOP programalama ile yazılmış kütüphane mevcuttur.)
 - [Graylog]() - Loglamaların tutulacağı mekanizma
