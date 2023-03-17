@@ -35,7 +35,7 @@ Docker desctop aktif çalışır durumda değilse "Reinstall-KUSYSDB.bat" dosyas
 - Solution'a sağ tıklanıp özeliklerden multible startup sekmesi tıklanır , "KUSYS" ve "Library.Security.IdentityServer" projeleri start seçilir
 - Proje çalıştırılınca KUSYS projesi için açılan swagger sekmesinde 
 login yapılır ve crud işlemleri login yapılan user'in yetkilerine göre çalışır. Login bilgileri çalıştırma ve 
-test sekmesinde bulunmaktadır. [Giriş bilgileri](#tests)
+test sekmesinde([burdan erişebilirsiniz](#tests)) bulunmaktadır.
 #### Graylog Kurulumu
 - Graylog kurulumu için Library.Logging projesinde bulunan Reinstal-Graylog.bat dosyası çalıştırılır.
 - Graylog'un web arayüzüne http://localhost:3000/ adresinden ulaşılabilir. Kullanıcı Adı:admin, Şifre:library yazılır.
