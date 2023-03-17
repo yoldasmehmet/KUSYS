@@ -28,12 +28,14 @@ Proje de kullanılan veritabanı postgresqldir. Docker engine'e kurulumu için a
 
 #### Veritabanı kurulumları
 - Docker desctop kurulumu yapılır. İnternetten indirilip kurulur. Kurulumunda sıkıntı yaşanırsa benimle irtibata geçebilirsiniz. (Tel: 05079404960)
-- KUSYS projesnde bulunan Reinstall-KUSYSDB.bat dosyası dosya konumundan çift tıklanarak çalıştırılabilir. 
+- KUSYS projesinde bulunan Reinstall-KUSYSDB.bat dosyası dosya konumundan çift tıklanarak çalıştırılabilir. 
 Docker desctop aktif çalışır durumda değilse "Reinstall-KUSYSDB.bat" dosyası çalışırken hata verecektir.
 - Aynı şekilde Library.Security.IdentityServer projesinde bulunan Reinstall-ServiceAuthorizationDB.bat dosyası da çalıştırılır.
 - Bu bat dosyası veri tabanını boşaltmak için de kullanılabilir. Tüm veri tabanı şeması silinecektir.
 - Solution'a sağ tıklanıp özeliklerden multible startup sekmesi tıklanır , "KUSYS" ve "Library.Security.IdentityServer" projeleri start seçilir
-- Proje çalıştırılınca KUSYS projesi için açılan swagger sekmesinde login yapılır ve crud işlemleri login yapılan user'in yetkilerine göre çalışır.
+- Proje çalıştırılınca KUSYS projesi için açılan swagger sekmesinde 
+login yapılır ve crud işlemleri login yapılan user'in yetkilerine göre çalışır. Login bilgileri çalıştırma ve 
+test sekmesinde bulunmaktadır. [Giriş bilgileri](#tests)
 #### Graylog Kurulumu
 - Graylog kurulumu için Library.Logging projesinde bulunan Reinstal-Graylog.bat dosyası çalıştırılır.
 - Graylog'un web arayüzüne http://localhost:3000/ adresinden ulaşılabilir. Kullanıcı Adı:admin, Şifre:library yazılır.
@@ -104,6 +106,7 @@ Bu şekilde gerekli tablolar, tablolar arası ilişkiler, ön tanımlı kayıtla
 
 ## 🎉 Teknolojiler <a name = "acknowledgement"></a>
 
+- Graylog, Serilog
 - Docker
 - .Net Core 6.0
 - Postgresql
