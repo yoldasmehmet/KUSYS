@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  db:
+    build: ""
+    container_name: local_service_authorization_db
+    hostname: local_service_authorization_db
+    restart: always
+    ports:
+      - "9980:5432"
+    volumes:
+      - 'local_service_authorization_db_postgre_data:/var/lib/postgresql'
+    environment:
+      - 'TZ=Europe/Istanbul'
+      - 'DB_USER=library_authorization_user'
+      - 'DB_PASS=library_authorization_2023'
+      -  DB_DATABASE=service_authorization_db
+      -  DB_PG_SCHEMA=public
+      - 'DB_NAME=service_authorization_db'
+      - 'PG_PASSWORD=library_postgres_admin'
+    command:
+      - "--logging_collector=on"
+      - "--log_connections=on"
+      - "--log_disconnections=on"
+      - "--log_hostname=on"
+volumes:
+  local_service_authorization_db_postgre_data:
+
+
+

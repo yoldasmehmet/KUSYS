@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Target Name="ReadPackageVersionFromOutputAssembly" DependsOnTargets="Build">
+		<GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+			<Output TaskParameter="Assemblies" ItemName="PackAssembly" />
+		</GetAssemblyIdentity>
+		<PropertyGroup>
+			<PackageVersion>%(PackAssembly.Version)</PackageVersion>
+		</PropertyGroup>
+	</Target>
+	<PropertyGroup>
+
+		<!-- A description for the NuGet package -->
+		<PackageDescription>The library written for .net core framework</PackageDescription>
+
+		<!-- The URL where the code is stored -->
+		<RepositoryUrl>https://github.com/yoldasmehmet/Common</RepositoryUrl>
+
+		<!-- The URL where the NuGet package should be uploaded -->
+		<PackageProjectUrl>https://github.com/yoldasmehmet/Common</PackageProjectUrl>
+
+		<!-- Use the type "git" for GitHub repositories -->
+		<RepositoryType>git</RepositoryType>
+
+		<!-- This setting disables automatically creating a NuGet package locally after each successful build.
+         We can turn this off since we want GitHub Actions to manage our repo packages -->
+		<!-- Authorship metadata -->
+		<Company>Quality Patterns</Company>
+		<Authors>Mehmet Yoldas</Authors>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Version>1.3.5</Version>
+		<Deterministic>false</Deterministic>
+		<PackageId>Chd.$(AssemblyName)</PackageId>
+		<PackageIcon>nuget.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="MethodBoundaryAspect.Fody" Version="2.0.139" />
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.12" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.OpenApi" Version="1.6.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="nuget.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Update="README.md">
+	    <PackagePath>\</PackagePath>
+	    <Pack>True</Pack>
+	  </None>
+	</ItemGroup>
+
+</Project>

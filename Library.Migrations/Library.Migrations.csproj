@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Target Name="ReadPackageVersionFromOutputAssembly" DependsOnTargets="Build">
+		<GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+			<Output TaskParameter="Assemblies" ItemName="PackAssembly" />
+		</GetAssemblyIdentity>
+		<PropertyGroup>
+			<PackageVersion>%(PackAssembly.Version)</PackageVersion>
+		</PropertyGroup>
+	</Target>
+	<PropertyGroup>
+
+		<!-- A description for the NuGet package -->
+		<PackageDescription>The library written for .net core framework</PackageDescription>
+
+		<!-- The URL where the code is stored -->
+		<RepositoryUrl>https://github.com/yoldasmehmet/Common</RepositoryUrl>
+
+		<!-- The URL where the NuGet package should be uploaded -->
+		<PackageProjectUrl>https://github.com/yoldasmehmet/Common</PackageProjectUrl>
+
+		<!-- Use the type "git" for GitHub repositories -->
+		<RepositoryType>git</RepositoryType>
+
+		<!-- This setting disables automatically creating a NuGet package locally after each successful build.
+         We can turn this off since we want GitHub Actions to manage our repo packages -->
+		<!-- Authorship metadata -->
+		<Company>Quality Patterns</Company>
+		<Authors>Mehmet Yoldas</Authors>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Version>1.2.7</Version>
+		<Deterministic>false</Deterministic>
+		<PackageId>Chd.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentMigrator.Runner" Version="3.2.9" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="6.0.11" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.8" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Library.Logging\Library.Logging.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,48 @@
+{
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.Graylog" ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Error",
+        "System": "Error"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Console"
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "formatter": "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact",
+          "path": "{path}",
+          "pathFormat": "{pathFormat}",
+          "fileSizeLimitBytes": "{fileSizeLimitBytes}",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] [{SourceContext}] [{EventId}] {Message}{NewLine}{Exception}############################################################{NewLine}",
+          "rollingInterval": "Day",
+          "rollOnFileSizeLimit": true,
+          "retainedFileCountLimit": "{retainedFileCountLimit}"
+        }
+      },
+      {
+        "Name": "Graylog",
+        "Args": {
+          "hostnameOrAddress": "{server}",
+          "port": "{port}",
+          "transportType": "Udp"
+        }
+      }
+    ],
+    "Enrich": [
+      "FromLogContext",
+      "WithMachineName",
+      "WithProcessId",
+      "WithThreadId"
+    ],
+    "Properties": {
+      "ApplicationName": "{applicationName}"
+    }
+  }
+
+}

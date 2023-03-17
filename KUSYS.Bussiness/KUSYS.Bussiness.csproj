@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MethodBoundaryAspect.Fody" Version="2.0.139" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KUSYS.Common\KUSYS.Common.csproj" />
+    <ProjectReference Include="..\Library.Logging\Library.Logging.csproj" />
+  </ItemGroup>
+
+</Project>

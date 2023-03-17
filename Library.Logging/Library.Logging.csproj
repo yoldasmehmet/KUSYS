@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Target Name="ReadPackageVersionFromOutputAssembly" DependsOnTargets="Build">
+		<GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+			<Output TaskParameter="Assemblies" ItemName="PackAssembly" />
+		</GetAssemblyIdentity>
+		<PropertyGroup>
+			<PackageVersion>%(PackAssembly.Version)</PackageVersion>
+		</PropertyGroup>
+	</Target>
+	<PropertyGroup>
+
+		<!-- A description for the NuGet package -->
+		<PackageDescription>The library written for .net core framework</PackageDescription>
+
+		<!-- The URL where the code is stored -->
+		<RepositoryUrl>https://github.com/yoldasmehmet/Common</RepositoryUrl>
+
+		<!-- The URL where the NuGet package should be uploaded -->
+		<PackageProjectUrl>https://github.com/yoldasmehmet/Common</PackageProjectUrl>
+
+		<!-- Use the type "git" for GitHub repositories -->
+		<RepositoryType>git</RepositoryType>
+
+		<!-- This setting disables automatically creating a NuGet package locally after each successful build.
+         We can turn this off since we want GitHub Actions to manage our repo packages -->
+		<!-- Authorship metadata -->
+		<Company>Quality Patterns</Company>
+		<Authors>Mehmet Yoldas</Authors>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Version>1.2.8</Version>
+		<Deterministic>false</Deterministic>
+		<PackageId>Chd.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensions\EnumExtensions.cs" />
+    <Compile Remove="Extensions\ExceptionExtensions.cs" />
+    <Compile Remove="Extensions\ObjectExtensions.cs" />
+    <Compile Remove="Extensions\StringExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="EmbededResources\serilog.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="EmbededResources\serilog.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MethodBoundaryAspect.Fody" Version="2.0.139" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.Graylog" Version="2.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Library.Common\Library.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.Test.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

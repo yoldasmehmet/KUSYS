@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  db:
+    build: ""
+    container_name: KUSYS_db
+    hostname: KUSYS_db
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - 'KUSYS_db_postgre_data:/var/lib/postgresql'
+    environment:
+      - 'TZ=Europe/Istanbul'
+      - 'DB_USER=library_KUSYS_user'
+      - 'DB_PASS=library_KUSYS_2023'
+      -  DB_DATABASE=service_KUSYS_db
+      -  DB_PG_SCHEMA=public
+      - 'DB_NAME=service_KUSYS_db'
+      - 'PG_PASSWORD=library_postgres_admin'
+    command:
+      - "--logging_collector=on"
+      - "--log_connections=on"
+      - "--log_disconnections=on"
+      - "--log_hostname=on"
+volumes:
+  KUSYS_db_postgre_data:
+

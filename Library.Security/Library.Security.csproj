@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Target Name="ReadPackageVersionFromOutputAssembly" DependsOnTargets="Build">
+		<GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+			<Output TaskParameter="Assemblies" ItemName="PackAssembly" />
+		</GetAssemblyIdentity>
+		<PropertyGroup>
+			<PackageVersion>%(PackAssembly.Version)</PackageVersion>
+		</PropertyGroup>
+	</Target>
+	<PropertyGroup>
+
+		<!-- A description for the NuGet package -->
+		<PackageDescription>The library written for .net core framework</PackageDescription>
+
+		<!-- The URL where the code is stored -->
+		<RepositoryUrl>https://github.com/yoldasmehmet/Common</RepositoryUrl>
+
+		<!-- The URL where the NuGet package should be uploaded -->
+		<PackageProjectUrl>https://github.com/yoldasmehmet/Common</PackageProjectUrl>
+
+		<!-- Use the type "git" for GitHub repositories -->
+		<RepositoryType>git</RepositoryType>
+
+		<!-- This setting disables automatically creating a NuGet package locally after each successful build.
+         We can turn this off since we want GitHub Actions to manage our repo packages -->
+		<!-- Authorship metadata -->
+		<Company>Quality Patterns</Company>
+		<Authors>Mehmet Yoldas</Authors>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Version>1.3.9</Version>
+		<Deterministic>false</Deterministic>
+		<PackageId>Chd.$(AssemblyName)</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="GSS.Authentication.CAS.AspNetCore" Version="5.3.2" />
+		<PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Core" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Authorization.Policy" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0-rc.2.22472.3" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0-rc.2.22472.3" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.0-rc.2.22472.3" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="7.0.0-rc.2.22472.3" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0-rc.2.22472.3" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="7.0.0-rc.2.22472.3" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="7.0.0-rc.2.22472.3" />
+		<PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="7.0.0-rc.2.22472.3" />
+		<PackageReference Include="Microsoft.Extensions.Primitives" Version="7.0.0-rc.2.22472.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Library.Common\Library.Common.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,3 @@
+@ECHO OFF
+dotnet tool update --global dotnet-ef --version 6.0.11
+dotnet ef dbcontext scaffold "User ID=postgres;Password=library_postgres_admin;Server=localhost;Port=9980;Database=service_authorization_db;Integrated Security=true;Pooling=true;" Npgsql.EntityFrameworkCore.PostgreSQL -d -o ../Library.Common/Entities -n  Library.Common.Entities    --no-onconfiguring -f -c "ServiceAuthorizationDBContext" --project ../Library.Common/Library.Common.csproj
