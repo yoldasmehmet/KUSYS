@@ -44,7 +44,7 @@ namespace KUSYS.Bussiness.Operations.Crud
                 updatedStudent.BirthDate = student.BirthDate;
                 kUSYSDBContext.SaveChanges();
             }
-            return new BaseResponse { Data = student };
+            return new BaseResponse { Data = updatedStudent };
         }
     }
 

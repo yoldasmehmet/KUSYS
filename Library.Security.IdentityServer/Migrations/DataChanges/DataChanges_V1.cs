@@ -18,7 +18,7 @@ namespace Library.Security.IdentityServer.Migrations.DataChanges
             Insert.IntoTable("user").Row(new
             {
                 name = "testuser",
-                email = "my@mail.com",
+                email = "user@mail.com",
                 password = "library".ToMd5(),
                 description = "test",
                 actor="user"
@@ -38,10 +38,10 @@ namespace Library.Security.IdentityServer.Migrations.DataChanges
             Insert.IntoTable("user").Row(new
             {
                 name = "testadmin",
-                email = "my@mail.com",
+                email = "admin@mail.com",
                 password = "library".ToMd5(),
                 description = "test",
-                actor = "user"
+                actor = "admin"
             });
         }
     }
