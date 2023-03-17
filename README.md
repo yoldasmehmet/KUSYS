@@ -101,7 +101,7 @@ içine gerçek ortamın veritabanı bilgileri yazılmalıdır. Daha sonra kullan
 Bu şekilde gerekli tablolar, tablolar arası ilişkiler, ön tanımlı kayıtlar oluşturulacaktır. Kullanıma hazır bir yapı saniyeler içinde oluşacaktır.
 
 
-## ⛏️ Nuget'te yayılanmış olan kütüphaneler ile etkin kullanılabilecek uygulamalar <a name = "built_using"></a>
+## ⛏️ Nuget'te yayılanmış olan kütüphanelerim ile etkin kullanılabilecek uygulamalar <a name = "built_using"></a>
 
 - [MongoDB](https://www.mongodb.com/) - Nosql veri tabanı
 - [Min.IO](https://expressjs.com/) - Amazon S3 protokolü destekli açık kaynaklı dosya sunucusu.
