@@ -14,9 +14,8 @@
 ## 🧐 Hakkında <a name = "about"></a>
 
 Bu demo projesi üniversitelerin gereksinim çerçevesinde hazırlanmıştır. Bu demo projesine
-nuget.org'ta yayımlanmladığım binlerce indirmesi olan kod kütüphanesinin birkaç projesi dahil edilmiştir.
-Kütüphanenin geri kalanında loglama(graylog ile entegre), cacheleme (redis ile entegre),
-dosya sunucusu yardımcı methodları (Min.io amazon s3 protokolü ile çalışan hızlı ve stabil dosya sunucusu),
+nuget.org'ta yayımlanmladığım kod kütüphanesinin birkaç projesi dahil edilmiştir.
+Kütüphanenin geri kalanında cacheleme (redis ile entegre), dosya sunucusu yardımcı methodları (Min.io amazon s3 protokolü ile çalışan hızlı ve stabil dosya sunucusu),
 mongodb ve elastic search ile ilgili yardımcı sınıfları içermektedir. 
 Bu projede kullanılan yetkilendirme sistemi SSO yapısındadır. Yetkilendirmeler bir servis sağlayıcısının ürettiği jwt tokenlar sayesinde gerçekleşir. 
  Tüm uygulamalar jwt token üreten bir servis ile yetkilendirilebilmektedir. 
@@ -37,7 +36,7 @@ Docker desctop aktif çalışır durumda değilse "Reinstall-KUSYSDB.bat" dosyas
 - Proje çalıştırılınca KUSYS projesi için açılan swagger sekmesinde login yapılır ve crud işlemleri login yapılan user'in yetkilerine göre çalışır.
 #### Graylog Kurulumu
 - Graylog kurulumu için Library.Logging projesinde bulunan Reinstal-Graylog.bat dosyası çalıştırılır.
-- Kullanıcı Adı:admin, Şifre:library yazılır.
+- Graylog'un web arayüzüne http://localhost:3000/ adresinden ulaşılabilir. Kullanıcı Adı:admin, Şifre:library yazılır.
 - System/Inputs sekmesinde inputs'a tıklanıp. 
 Sol üstteki açılır listeden Gelf UDP seçilir. 
 Sadece  node alanı ve title alanı doldurulup varsayılan ayarlar ile bir input oluşturulur.
@@ -77,7 +76,7 @@ Bunun sırası Development=>Test=>Production şeklindedir.
 Bu şekilde şema değişimlerindeki yaşanabilecek sıkıntılar minimize edilir.
  - Migrationlar ayarlandığında development ortamında yapılan testler çalışıyorsa visual studio daki envirement değiştirilip test ortamına geçilir.
  Burdaki yapılan testlerde bir sorun çıkmazsa production ortamına geçilir.
- Taplo yapılarının değişmesinde aortamlar arası bir problem oluşturmamaktadır yapılan testlerde. 
+ Yapılan testlerde envirement değişimlerinde tablo yapılarının değişmesi başarılıdır ve sorun çıkarmıyor. Bir envirement'ta çalışan bir migration diğerinde de çalışmaktadır. Veri tabanına elle mudahale edilmediği sürece problem yaşanmamaktadır.
  Proje çalıştırılınca ilk yapılan iş migration olduğu için gerekli şema değişikliği veri tabanına yansıtılır ve kodlar ona göre çalışır. 
  Migratiion yapıldıktan sonra bunun için harcanan zamanı da konsoldan izlemek ve ne yapıldığına dair bilgileri de görmek mümkündür.
  - Yapılacak olan migratonun kim tarafından ne zaman yapıldığı VersionInfo tablosunda kayıt altında tutulmaktadır. 
